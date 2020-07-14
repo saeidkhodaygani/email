@@ -1,0 +1,6 @@
+sudo uwsgi --ini django_web_app_uwsgi.ini 
+
+nmcli connection down my-hotspot
+
+uwsgi --http :8000 --chdir /home/tf/Desktop/test/django_web_app/ --wsgi-file /home/tf/Desktop/test/django_web_app/django_web_app/wsgi.py
+

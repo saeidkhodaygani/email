@@ -1,0 +1,1 @@
+/home/p-14/Desktop/arch/docker-django/django_web_app/django_web_app/settings.py
