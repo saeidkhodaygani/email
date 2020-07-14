@@ -10,10 +10,11 @@ services:
     container_name: nz01
     ports:
       - "8000:8000"
+      - "8001:8001"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
-      - /static:/static
+      # - ./static:/static
       #- /src/static/
     depends_on:
       - web
