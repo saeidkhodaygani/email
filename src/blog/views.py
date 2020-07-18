@@ -80,17 +80,17 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     # template_name = 'blog/post_form.html'
     # fields = ['title', 'content', 'file','manager']
 
-    # def form_valid(self, form):
-    #     form.instance.author = self.request.user
-    #     #form.instance.manager = UserProfile.objects.filter(user__username=self.request.user.username).values_list('contact', flat=True)
-
-    #     return super().form_valid(form)
     form_class = createPost
     template_name = 'blog/post_form.html'
     def get_form_kwargs(self):
         kwargs = super(PostCreateView,self).get_form_kwargs()
         kwargs['userss'] = self.request.user
         return kwargs
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        #form.instance.manager = UserProfile.objects.filter(user__username=self.request.user.username).values_list('contact', flat=True)
+        return super().form_valid(form)
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
