@@ -1,16 +1,22 @@
-from rest_framework import viewsets 
-from .serializers import userSerializers 
-from django.contrib.auth.models import User 
+from rest_framework import viewsets
+from .serializers import UserSerializers
+from django.contrib.auth.models import User
 from blog.models import UserProfile
-from rest_framework.authentication import TokenAuthentication  
-from rest_framework.permissions import IsAuthenticated 
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class userviewsets(viewsets.ModelViewSet):
-    # user = self.request.user
-    queryset = UserProfile.objects.all()#filter(username=self.context["request"].user) 
-    serializer_class = userSerializers
+    queryset = UserProfile.objects.all()
+    serializer_class = UserSerializers
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
+    lookup_field = 'pk'
+
+    def get_object(self):
+        if self.kwargs.get('pk', None) == 'me':
+            profile = UserProfile.objects.filter(user__id=self.request.user.id).first()
+            self.kwargs['pk'] = profile.id
+        return super().get_object()
 
 
     # def retrieve(self, request, pk=None):
