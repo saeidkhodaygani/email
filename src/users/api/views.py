@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 from blog.models import UserProfile
 
-from .serializers import userSerializers 
+from .serializers import UserSerializers 
 
 
 #@api_view(['GET','POST'])
@@ -25,7 +25,7 @@ class MeApiHandler(RetrieveAPIView):
     parser_classes = [FormParser, MultiPartParser, JSONParser]
     queryset = UserProfile.objects.all()#filter(username=self.context["request"].user) 
 
-    serializer_class = userSerializers
+    serializer_class = UserSerializers
 
     # def get_object(self):
     #    pk = self.kwargs.get('pk')
