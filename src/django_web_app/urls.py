@@ -25,10 +25,11 @@ from rest_framework.authtoken import views
 #from rest_framework_simplejwt import views as jwt_views
 from rest_framework_jwt.views import obtain_jwt_token
 from django.conf.urls import url
-
+from .custom import wifi
 from users.api.views import MeApiHandler
 
 urlpatterns = [
+    path('admin/users/profile/wifi/action888/', wifi),
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('register/', user_views.register, name='register'),
@@ -41,7 +42,6 @@ urlpatterns = [
     #path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     #path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     #url(r'^api-token-auth/', obtain_jwt_token),
-
 ]
 
 
