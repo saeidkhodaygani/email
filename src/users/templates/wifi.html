@@ -7,9 +7,77 @@
     background-color: #f1f1f1;
     font-size: 18px;
 }
+
+.right50 {
+    padding-right: 50px;
+}
 </style>
-<center>
-    <a class="wifi" href="/admin/users/profile/wifi/action888/">WIFI !</a>
-</center>
+<div style="padding-left:50px;">
+    <a class="wifi" href="/admin/users/profile/wifi/action888/">WIFI !</a><br><br>
+     <form action="/admin/users/profile/wifi/" method="POST">
+        {% csrf_token %}
+        <label class="right50" for="year">سال: </label>
+        <input type="text" id="year" name="year" value="1399"><br>
+
+        <label class="right50" for="month">ماه: </label>
+        <select name="month" id="month">
+            <option value="1">فروردین</option>
+            <option value="2">اردیبهشت</option>
+            <option value="3">خرداد</option>
+            <option value="4">تیر</option>
+            <option value="5">مرداد</option>
+            <option value="6">شهریور</option>
+            <option value="7">مهر</option>
+            <option value="8">آبان</option>
+            <option value="9">آذر</option>
+            <option value="10">دی</option>
+            <option value="11">بهمن</option>
+            <option value="12">اسفند</option>
+        </select><br>
+
+        <label class="right50" for="day">روز: </label>
+        <select name="day" id="day">
+                <option value="1">1</option><br>
+                <option value="2">2</option><br>
+                <option value="3">3</option><br>
+                <option value="4">4</option><br>
+                <option value="5">5</option><br>
+                <option value="6">6</option><br>
+                <option value="7">7</option><br>
+                <option value="8">8</option><br>
+                <option value="9">9</option><br>
+                <option value="10">10</option><br>
+                <option value="11">11</option><br>
+                <option value="12">12</option><br>
+                <option value="13">13</option><br>
+                <option value="14">14</option><br>
+                <option value="15">15</option><br>
+                <option value="16">16</option><br>
+                <option value="17">17</option><br>
+                <option value="18">18</option><br>
+                <option value="19">19</option><br>
+                <option value="20">20</option><br>
+                <option value="21">21</option><br>
+                <option value="22">22</option><br>
+                <option value="23">23</option><br>
+                <option value="24">24</option><br>
+                <option value="25">25</option><br>
+                <option value="26">26</option><br>
+                <option value="27">27</option><br>
+                <option value="28">28</option><br>
+                <option value="29">29</option><br>
+                <option value="30">30</option><br>
+
+        </select><br>
+
+        <label class="right50" for="startH">ساعت شروع: </label>
+        <input type="text" id="startH" name="startH" value="00:00"><br>
+
+        <label class="right50" for="endH">ساعت پایان: </label>
+        <input type="text" id="endH" name="endH" value="23:59"><br>
+
+        <input type="submit" value="Submit">
+</form>
+</div>
 
 {% endblock %}
